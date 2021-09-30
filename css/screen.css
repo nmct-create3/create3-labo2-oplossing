@@ -623,6 +623,7 @@ input::placeholder {
     appearance: none;
     width: 100%;
     border: 1px solid var(--global-input-borderColor);
+    /* border: 1px solid var(--global-color-neutral-xxx-light); */
     border-radius: var(--global-borderRadius);
     background-color: var(--global-input-backgroundColor);
     color: var(--global-input-color);
@@ -806,6 +807,7 @@ more padding on the right to avoid overlap
     --custom-option-boxShadow: var(--global-input-focus-boxShadow);
 }
 
+
 /* checked state */
 
 .c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
@@ -880,8 +882,7 @@ more padding on the right to avoid overlap
 
 /* focused and active state */
 
-.c-option--hidden:focus + .c-custom-toggle,
-.c-option--hidden:active + .c-custom-toggle {
+.c-option--hidden:focus-visible + .c-custom-toggle {
     --toggle-borderColor: var(--global-input-focus-borderColor);
     --toggle-boxShadow: var(--toggle-focus-boxShadow);
 }
@@ -900,11 +901,11 @@ more padding on the right to avoid overlap
 
 /* special active state */
 
-.c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input::after {
+.c-custom-toggle:active .c-custom-toggle__fake-input::after {
     width: 28px;
 }
 
-.c-option--hidden:active:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+.c-option--hidden:checked + .c-custom-toggle:active .c-custom-toggle__fake-input::after {
     margin-left: -6px;
 }
 
@@ -935,6 +936,44 @@ more padding on the right to avoid overlap
     ---
     Password toggle custom checkbox
 */
+
+.c-toggle-password-container {
+    display: block;
+    position: relative;
+}
+
+.c-toggle-password {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.c-toggle-password__label {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--global-whitespace-md);
+}
+
+.c-toggle-password__icon {
+    display: block;
+    width: calc(var(--global-baseline) * 3);
+    fill: var(--global-color-neutral-light);
+}
+
+.c-toggle-password__icon--hide {
+    display: none;
+}
+
+.c-toggle-password__checkbox:checked + .c-toggle-password__label .c-toggle-password__icon--hide {
+    display: block;
+}
+
+.c-toggle-password__checkbox:checked + .c-toggle-password__label .c-toggle-password__icon--show {
+    display: none;
+}
 
 /*------------------------------------*\
 #UTILITIES
