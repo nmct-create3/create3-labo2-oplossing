@@ -14,22 +14,6 @@
     src: url("../fonts/Inter-SemiBold.woff2") format("woff2")
 }
 
-.c-card {
-    --white-space: 1.5rem 1.5rem 0;
-    background-color: #fff;
-    max-width: 36em;
-    padding: var(--white-space);
-    overflow: hidden;
-    box-shadow: 4px 8px 15px rgba(0, 0, 0, .25);
-    margin-bottom: 24px;
-}
-
-@media screen and (min-width: 768px) {
-    .c-card {
-        --white-space: 3rem 3rem 1.5rem;
-    }
-}
-
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
